@@ -1,117 +1,132 @@
-Resumatic - Automated Resume Builder
-====================================
 
-Resumatic is a Python-based automation tool that helps you render and export beautiful resume PDFs using JSON Resume themes with ease.
+# 📄 Resumatic – Automated Resume Builder
 
---------------------------------------------------------
-🚀 Quick Start
---------------------------------------------------------
+**Resumatic** is a Python-based tool that renders and exports beautiful resume PDFs using [JSON Resume](https://jsonresume.org/) themes. It streamlines the process with easy automation, so you can focus on what matters: your content.
 
-1. Open CMD in this directory:
-   Make sure you're inside the folder that contains `resumatic.py` and `resumatic.bat`.
+![Python](https://img.shields.io/badge/Built%20with-Python-blue?style=flat-square)
+![Node.js](https://img.shields.io/badge/Uses-Node.js%20%26%20NPM-green?style=flat-square)
 
-2. Install the theme you want:
-   Run the following command in this directory:
+---
 
-       npm install jsonresume-theme-rickosborne
+## 🚀 Quick Start
 
-   (Replace "rickosborne" with any other theme you prefer.)
+### 1. Open Command Prompt in the Project Directory
+Make sure you're inside the folder that contains:
 
-3. Run Resumatic:
-   Either use:
+- `resumatic.py`
+- `resumatic.bat`
 
-       python resumatic.py
+### 2. Install a Theme
+Run this command in your terminal:
 
-   or:
+```bash
+npm install jsonresume-theme-rickosborne
+```
 
-       resumatic.bat
+> 🔁 Replace `rickosborne` with any other [JSON Resume theme](https://www.npmjs.com/search?q=jsonresume-theme).
 
-   This will:
-   - Load your resume.json
-   - Render it using the selected theme
-   - Export your resume to both HTML and PDF
+### 3. Run Resumatic
+Use either command:
 
---------------------------------------------------------
-🎨 Changing the Theme
---------------------------------------------------------
+```bash
+python resumatic.py
+```
+or:
+```bash
+resumatic.bat
+```
 
-To use a different theme, open `resumatic.py` and find the line:
+This will:
+- Load your `resume.json`
+- Render it using the selected theme
+- Export both `resume.html` and `resume.pdf`
 
-    theme = "rickosborne"
+---
 
-Change `"rickosborne"` to another theme name of your choice, such as `"even"`.
+## 🎨 Changing the Theme
 
-⚠️ IMPORTANT: You must install the theme first, or it will not work.
+To use a different theme:
 
-For example, to install the "even" theme, run:
+1. Open `resumatic.py`
+2. Find this line:
 
-    npm install jsonresume-theme-even
+   ```python
+   theme = "rickosborne"
+   ```
 
-If the theme is not installed, the script will fail to render your resume.
+3. Change it to another theme, e.g., `"even"`.
 
+> ⚠️ You **must install** the theme first:
+```bash
+npm install jsonresume-theme-even
+```
 
---------------------------------------------------------
-🛠️ PDF Export Configuration
---------------------------------------------------------
+---
 
-You can fine-tune the PDF export behavior in `html_to_pdf.py` by editing these variables:
+## 🛠️ PDF Export Configuration
 
-    TARGET_PAGE_COUNT = 1     # Max pages allowed in final PDF
-    SCALE_START = 2.00        # Starting zoom level (200%)
-    SCALE_END = 0.20          # Minimum zoom level (20%)
-    SCALE_STEP = 0.01         # How much to step down each try
-    SCALE_FACTOR = 0.95       # Scale reduction multiplier per try
+Customize the PDF output by editing `html_to_pdf.py`:
 
-Adjust these to ensure your resume fits on a single page or your desired layout.
+```python
+TARGET_PAGE_COUNT = 1     # Max number of pages
+SCALE_START = 2.00        # Start zoom level (200%)
+SCALE_END = 0.20          # Minimum zoom level (20%)
+SCALE_STEP = 0.01         # Step size per iteration
+SCALE_FACTOR = 0.95       # Zoom reduction factor
+```
 
+Tweak these to ensure your resume fits your desired layout or page count.
 
---------------------------------------------------------
-📄 resume.json – Your actual resume data
---------------------------------------------------------
+---
 
-The `resume.json` file included is just an example.
+## 📄 resume.json – Your Resume Data
 
-You should **edit it with your own information** or **replace it with your own resume file**, but make sure the filename stays as:
+This file holds all your resume information. You can:
 
-    resume.json
+- Edit the included `resume.json`
+- Replace it with your own (keep the filename as `resume.json`)
 
-This is the file the script reads to generate your resume.
+---
 
+## 📁 File Overview
 
---------------------------------------------------------
-📁 File Overview
---------------------------------------------------------
+| File             | Description                                |
+|------------------|--------------------------------------------|
+| `resumatic.py`   | Main automation script                     |
+| `resumatic.bat`  | Windows shortcut for quick execution       |
+| `html_to_pdf.py` | PDF export with dynamic scaling            |
+| `resume.json`    | Your resume data in JSON Resume format     |
+| `README.md`      | This documentation                         |
 
-- resumatic.py       – Main script to automate resume rendering
-- resumatic.bat      – Shortcut to run it on Windows
-- html_to_pdf.py     – Handles PDF export scaling logic
-- resume.json        – Your actual resume data
-- README.txt         – This help file
+---
 
+## 📤 Output Files
 
---------------------------------------------------------
-📤 Output Files
---------------------------------------------------------
+| File          | Description                              |
+|---------------|------------------------------------------|
+| `resume.html` | HTML resume rendered from your JSON data |
+| `resume.pdf`  | Final printable PDF output                |
 
-- resume.html – The HTML version of your resume, generated by `resumatic.py`
-- resume.pdf  – A printable PDF version of your resume, generated by `html_to_pdf.py`
+---
 
+## 🙏 Special Thanks
 
---------------------------------------------------------
-🙏 Special Thanks
---------------------------------------------------------
+This project builds on amazing open-source tools:
 
-This project builds on the incredible work of the open-source community. Special thanks to:
+- [**resumed**](https://github.com/rbardini/resumed) – CLI tool for rendering JSON Resume data
+- [**jsonresume-theme-class**](https://github.com/jsonresume/jsonresume-theme-class) – A clean and professional base theme
 
-- [`resumed`](https://github.com/rbardini/resumed) – A powerful CLI tool for rendering JSON Resume data into themed HTML.
-- [`jsonresume-theme-class`](https://github.com/jsonresume/jsonresume-theme-class) – A clean and professional theme used as the base inspiration for many resume styles.
+Under the hood, Resumatic uses `resume-cli` to convert your `resume.json` into themed HTML.
 
-This tool uses `resume-cli` under the hood to generate HTML from your resume data with the theme of your choice.
+---
 
+## 🔗 Resources & Help
 
+- 🔍 Browse themes: [npmjs.com/search?q=jsonresume-theme](https://www.npmjs.com/search?q=jsonresume-theme)
+- 📖 Learn about the format: [jsonresume.org](https://jsonresume.org)
 
---------------------------------------------------------
-Need Help?
---------------------------------------------------------
+---
 
-For more themes, visit: https://www.npmjs.com/search?q=jsonresume-theme
+Feel free to open an issue or PR if you’d like to contribute or report bugs. Happy resume building! 💼✨
+
+--- 
